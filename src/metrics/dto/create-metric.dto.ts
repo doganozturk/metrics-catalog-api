@@ -7,24 +7,7 @@ import {
     ValidateNested,
 } from 'class-validator';
 import { Type } from 'class-transformer';
-
-class Resource {
-    @IsString()
-    @IsNotEmpty()
-    readonly name: string;
-
-    @IsNumber()
-    @IsNotEmpty()
-    readonly requestStart: number;
-
-    @IsNumber()
-    @IsNotEmpty()
-    readonly responseEnd: number;
-
-    @IsNumber()
-    @IsNotEmpty()
-    readonly startTime: number;
-}
+import { CreateResourceDto } from './create-resource.dto';
 
 export class CreateMetricDto {
     @IsString()
@@ -53,6 +36,6 @@ export class CreateMetricDto {
 
     @IsArray()
     @ValidateNested()
-    @Type(() => Resource)
-    readonly resources: Resource[];
+    @Type(() => CreateResourceDto)
+    readonly resources: CreateResourceDto[];
 }
