@@ -15,13 +15,15 @@ export class MetricsController {
     constructor(private metricsService: MetricsService) {}
 
     @Get()
-    getMetrics(): Metric[] {
+    async getMetrics(): Promise<Metric[]> {
         return this.metricsService.getMetrics();
     }
 
     @Post()
     @UsePipes(ValidationPipe)
-    createMetric(@Body() createMetricDto: CreateMetricDto): Metric {
+    async createMetric(
+        @Body() createMetricDto: CreateMetricDto,
+    ): Promise<Metric> {
         return this.metricsService.createMetric(createMetricDto);
     }
 }

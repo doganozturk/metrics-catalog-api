@@ -9,33 +9,33 @@ import {
 export class CreateMetricDto {
     @IsString()
     @IsNotEmpty()
-    host: string;
+    readonly host: string;
 
     @IsDateString()
     @IsNotEmpty()
-    date: Date;
+    readonly date: Date;
 
     @IsNumber()
     @IsNotEmpty()
-    ttfb: number;
+    readonly ttfb: number;
 
     @IsNumber()
     @IsNotEmpty()
-    fcp: number;
+    readonly fcp: number;
 
     @IsNumber()
     @IsNotEmpty()
-    domContentLoaded: number;
+    readonly domContentLoaded: number;
 
     @IsNumber()
     @IsNotEmpty()
-    windowLoaded: number;
+    readonly windowLoaded: number;
 
     @IsArray()
-    resources: {
-        name: string;
-        requestStart: number;
-        responseEnd: number;
-        startTime: number;
+    readonly resources: {
+        readonly name: string;
+        readonly requestStart: number;
+        readonly responseEnd: number;
+        readonly startTime: number;
     }[];
 }

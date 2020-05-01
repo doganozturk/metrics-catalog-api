@@ -1,24 +1,22 @@
 import { Injectable } from '@nestjs/common';
 import { Metric } from './metric.model';
-import { v1 as uuid } from 'uuid';
 import { CreateMetricDto } from './dto/create-metric.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class MetricsService {
-    private metrics: Metric[] = [];
+    constructor(
+        @InjectModel('Metric') private readonly metricModel: Model<Metric>,
+    ) {}
 
-    getMetrics(): Metric[] {
-        return this.metrics;
+    async getMetrics(): Promise<Metric[]> {
+        return this.metricModel.find({}).exec();
     }
 
-    createMetric(createMetricDto: CreateMetricDto): Metric {
-        const metric: Metric = {
-            id: uuid(),
-            ...createMetricDto,
-        };
+    async createMetric(createMetricDto: CreateMetricDto): Promise<Metric> {
+        const metric: Metric = new this.metricModel(createMetricDto);
 
-        this.metrics.push(metric);
-
-        return metric;
+        return metric.save();
     }
 }
