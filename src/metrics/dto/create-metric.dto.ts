@@ -4,7 +4,27 @@ import {
     IsNotEmpty,
     IsNumber,
     IsString,
+    ValidateNested,
 } from 'class-validator';
+import { Type } from 'class-transformer';
+
+class Resource {
+    @IsString()
+    @IsNotEmpty()
+    readonly name: string;
+
+    @IsNumber()
+    @IsNotEmpty()
+    readonly requestStart: number;
+
+    @IsNumber()
+    @IsNotEmpty()
+    readonly responseEnd: number;
+
+    @IsNumber()
+    @IsNotEmpty()
+    readonly startTime: number;
+}
 
 export class CreateMetricDto {
     @IsString()
@@ -32,10 +52,7 @@ export class CreateMetricDto {
     readonly windowLoaded: number;
 
     @IsArray()
-    readonly resources: {
-        readonly name: string;
-        readonly requestStart: number;
-        readonly responseEnd: number;
-        readonly startTime: number;
-    }[];
+    @ValidateNested()
+    @Type(() => Resource)
+    readonly resources: Resource[];
 }
