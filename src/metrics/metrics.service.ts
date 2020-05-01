@@ -12,7 +12,7 @@ export class MetricsService {
     ) {}
 
     async getMetrics(): Promise<Metric[]> {
-        return this.metricModel.find({}).exec();
+        return this.metricModel.find({});
     }
 
     async getFilteredMetrics(
@@ -28,11 +28,11 @@ export class MetricsService {
             };
         }
 
-        return this.metricModel.find(filterQuery).exec();
+        return this.metricModel.find(filterQuery);
     }
 
     async createMetric(createMetricDto: CreateMetricDto): Promise<Metric> {
-        const metric: Metric = new this.metricModel(createMetricDto);
+        const metric: Metric = await this.metricModel.create(createMetricDto);
 
         return metric.save();
     }
