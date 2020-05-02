@@ -69,54 +69,6 @@
                 "requestStart": 3120.379999978468,
                 "responseEnd": 3160.779999976512,
                 "startTime": 3118.789999978617
-            },
-            {
-                "name": "http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcJN",
-                "requestStart": 3191.9399999896996,
-                "responseEnd": 3206.2199999927543,
-                "startTime": 3174.445000011474
-            },
-            {
-                "name": "http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcKX&sid=2Ov42hi2x4Aw9NR3AAAA",
-                "requestStart": 3256.1250000144355,
-                "responseEnd": 3258.9199999929406,
-                "startTime": 3248.8000000012107
-            },
-            {
-                "name": "http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcKs&sid=2Ov42hi2x4Aw9NR3AAAA",
-                "requestStart": 3271.9550000038,
-                "responseEnd": 3275.054999976419,
-                "startTime": 3268.470000009984
-            },
-            {
-                "name": "http://localhost:8080/site.webmanifest",
-                "requestStart": 3278.355000016745,
-                "responseEnd": 3279.9099999829195,
-                "startTime": 3273.994999995921
-            },
-            {
-                "name": "http://localhost:8080/public/favicon/favicon-32x32.png",
-                "requestStart": 3276.8899999791756,
-                "responseEnd": 3285.565000027418,
-                "startTime": 3276.639999996405
-            },
-            {
-                "name": "http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcLC&sid=2Ov42hi2x4Aw9NR3AAAA",
-                "requestStart": 3296.555000008084,
-                "responseEnd": 3297.7800000226125,
-                "startTime": 3292.0949999825098
-            },
-            {
-                "name": "http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcLE&sid=2Ov42hi2x4Aw9NR3AAAA",
-                "requestStart": 3304.4649999937974,
-                "responseEnd": 3401.3450000202283,
-                "startTime": 3293.1400000234134
-            },
-            {
-                "name": "http://localhost:8080/public/favicon/android-chrome-192x192.png",
-                "requestStart": 3299.9999999883585,
-                "responseEnd": 3308.695000014268,
-                "startTime": 3299.219999986235
             }
         ],
         "ttfb": 5.1300000050105155,
@@ -153,62 +105,6 @@
                 "requestStart": 3120.379999978468,
                 "responseEnd": 3160.779999976512,
                 "startTime": 3118.789999978617
-            },
-            {
-                "_id": "5eacad4ee1212116a240d40a",
-                "name": "http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcJN",
-                "requestStart": 3191.9399999896996,
-                "responseEnd": 3206.2199999927543,
-                "startTime": 3174.445000011474
-            },
-            {
-                "_id": "5eacad4ee1212116a240d40b",
-                "name": "http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcKX&sid=2Ov42hi2x4Aw9NR3AAAA",
-                "requestStart": 3256.1250000144355,
-                "responseEnd": 3258.9199999929406,
-                "startTime": 3248.8000000012107
-            },
-            {
-                "_id": "5eacad4ee1212116a240d40c",
-                "name": "http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcKs&sid=2Ov42hi2x4Aw9NR3AAAA",
-                "requestStart": 3271.9550000038,
-                "responseEnd": 3275.054999976419,
-                "startTime": 3268.470000009984
-            },
-            {
-                "_id": "5eacad4ee1212116a240d40d",
-                "name": "http://localhost:8080/site.webmanifest",
-                "requestStart": 3278.355000016745,
-                "responseEnd": 3279.9099999829195,
-                "startTime": 3273.994999995921
-            },
-            {
-                "_id": "5eacad4ee1212116a240d40e",
-                "name": "http://localhost:8080/public/favicon/favicon-32x32.png",
-                "requestStart": 3276.8899999791756,
-                "responseEnd": 3285.565000027418,
-                "startTime": 3276.639999996405
-            },
-            {
-                "_id": "5eacad4ee1212116a240d40f",
-                "name": "http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcLC&sid=2Ov42hi2x4Aw9NR3AAAA",
-                "requestStart": 3296.555000008084,
-                "responseEnd": 3297.7800000226125,
-                "startTime": 3292.0949999825098
-            },
-            {
-                "_id": "5eacad4ee1212116a240d410",
-                "name": "http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcLE&sid=2Ov42hi2x4Aw9NR3AAAA",
-                "requestStart": 3304.4649999937974,
-                "responseEnd": 3401.3450000202283,
-                "startTime": 3293.1400000234134
-            },
-            {
-                "_id": "5eacad4ee1212116a240d411",
-                "name": "http://localhost:8080/public/favicon/android-chrome-192x192.png",
-                "requestStart": 3299.9999999883585,
-                "responseEnd": 3308.695000014268,
-                "startTime": 3299.219999986235
             }
         ],
         "ttfb": 5.1300000050105155,
