@@ -24,7 +24,7 @@
         "test:cov": "jest --coverage",
         "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
         "test:e2e": "jest --config ./test/jest-e2e.json",
-        "test:load": "loadtest -n 10000 -c 10 --rps 200 http://localhost:3000/metrics"
+        "test:load": "loadtest -n 1000 -c 1 --rps 200 http://localhost:3000/metrics"
     },
     "dependencies": {
         "@nestjs/common": "^7.0.0",
