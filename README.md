@@ -28,13 +28,13 @@
 
     []
 
-### Get a list of Metrics with date range filter
+### Get a list of Metrics with date range & host filters
 
 #### Request
 
-`GET /metrics/?date_min={date_min}&date_max={date_max}`
+`GET /metrics/?host={host}&date_min={date_min}&date_max={date_max}`
 
-    curl -i -H 'Accept: application/json' https://metrics-catalog-api.herokuapp.com/metrics/?date_min=2020-05-01T22:07:48.822Z&date_max=2020-05-01T22:07:52.822Z
+    curl -i -H 'Accept: application/json' https://metrics-catalog-api.herokuapp.com/metrics/?host=doganozturk.dev&date_min=2020-05-01T22:07:48.822Z&date_max=2020-05-01T22:07:52.822Z
 
 #### Response
 

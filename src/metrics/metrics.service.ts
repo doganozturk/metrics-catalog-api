@@ -18,8 +18,12 @@ export class MetricsService {
     async getFilteredMetrics(
         getMetricsFilteredDto: GetMetricsFilteredDto,
     ): Promise<Metric[]> {
-        const { date_min, date_max } = getMetricsFilteredDto;
+        const { host, date_min, date_max } = getMetricsFilteredDto;
         const filterQuery: MongooseFilterQuery<Metric> = {};
+
+        if (host) {
+            filterQuery.host = host;
+        }
 
         if (date_min && date_max) {
             filterQuery.date = {
