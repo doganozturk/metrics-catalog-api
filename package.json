@@ -1,6 +1,6 @@
 {
     "name": "metrics-catalog-api",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Metrics Catalog API",
     "author": "Doğan Öztürk",
     "private": false,
