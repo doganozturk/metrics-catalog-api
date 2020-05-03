@@ -1,5 +1,7 @@
 # MetricsCatalog.API
 
+[![CircleCI](https://circleci.com/gh/doganozturk/metrics-catalog-api/tree/master.svg?style=shield&circle-token=cd068c8a9e6f1b5093de193726ef3b4eb1d4a0cb)](https://circleci.com/gh/doganozturk/metrics-catalog-api/tree/master)
+
 `metrics-catalog-api` is a little REST API collecting and serving client-side performance data such as TTFB, FCB etc. `metrics-catalog-api` does this using [`metrics-catalog-js`](https://github.com/doganozturk/metrics-catalog-js), a tiny client-side library that collects page performance data and posts it to this API.
 
 ## Features
