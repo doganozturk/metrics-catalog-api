@@ -1,49 +1,49 @@
 import { Test } from '@nestjs/testing';
 import { MetricsService } from './metrics.service';
-import { METRIC_MODEL } from './metric.constants';
+import { MetricsRepository } from './metrics.repository';
 
-const mockMetricModel = () => ({
+const mockMetricsRepository = () => ({
     find: jest.fn(),
     create: jest.fn(),
 });
 
 describe('MetricsService', () => {
     let metricsService;
-    let metricModel;
+    let metricsRepository;
 
     beforeEach(async () => {
         const module = await Test.createTestingModule({
             providers: [
                 MetricsService,
                 {
-                    provide: METRIC_MODEL,
-                    useFactory: mockMetricModel,
+                    provide: MetricsRepository,
+                    useFactory: mockMetricsRepository,
                 },
             ],
         }).compile();
 
         metricsService = module.get<MetricsService>(MetricsService);
-        metricModel = module.get(METRIC_MODEL);
+        metricsRepository = module.get<MetricsRepository>(MetricsRepository);
     });
 
     describe('getMetrics()', () => {
         test('it gets all metrics from repository', async () => {
-            metricModel.find.mockResolvedValue([]);
+            metricsRepository.find.mockResolvedValue([]);
 
-            expect(metricModel.find).not.toHaveBeenCalled();
+            expect(metricsRepository.find).not.toHaveBeenCalled();
 
             const metrics = await metricsService.getMetrics();
 
-            expect(metricModel.find).toHaveBeenCalledTimes(1);
+            expect(metricsRepository.find).toHaveBeenCalledTimes(1);
             expect(metrics).toEqual([]);
         });
     });
 
     describe('getFilteredMetrics()', () => {
         test('it gets filtered metrics from repository with valid parameters', async () => {
-            metricModel.find.mockResolvedValue([]);
+            metricsRepository.find.mockResolvedValue([]);
 
-            expect(metricModel.find).not.toHaveBeenCalled();
+            expect(metricsRepository.find).not.toHaveBeenCalled();
 
             const getMetricsFilteredDto = {
                 date_min: '2020-05-01T00:02:12.852Z',
@@ -54,14 +54,14 @@ describe('MetricsService', () => {
                 getMetricsFilteredDto,
             );
 
-            expect(metricModel.find).toHaveBeenCalledTimes(1);
+            expect(metricsRepository.find).toHaveBeenCalledTimes(1);
             expect(metrics).toEqual([]);
         });
 
         test('it gets all metrics from repository without any parameters', async () => {
-            metricModel.find.mockResolvedValue([]);
+            metricsRepository.find.mockResolvedValue([]);
 
-            expect(metricModel.find).not.toHaveBeenCalled();
+            expect(metricsRepository.find).not.toHaveBeenCalled();
 
             const getMetricsFilteredDto = {};
 
@@ -69,14 +69,14 @@ describe('MetricsService', () => {
                 getMetricsFilteredDto,
             );
 
-            expect(metricModel.find).toHaveBeenCalledTimes(1);
+            expect(metricsRepository.find).toHaveBeenCalledTimes(1);
             expect(metrics).toEqual([]);
         });
 
         test('it gets all metrics from repository if only date_min param exists for date range filter', async () => {
-            metricModel.find.mockResolvedValue([]);
+            metricsRepository.find.mockResolvedValue([]);
 
-            expect(metricModel.find).not.toHaveBeenCalled();
+            expect(metricsRepository.find).not.toHaveBeenCalled();
 
             const getMetricsFilteredDto = {
                 date_min: '2020-05-01T00:02:12.852Z',
@@ -86,14 +86,14 @@ describe('MetricsService', () => {
                 getMetricsFilteredDto,
             );
 
-            expect(metricModel.find).toHaveBeenCalledTimes(1);
+            expect(metricsRepository.find).toHaveBeenCalledTimes(1);
             expect(metrics).toEqual([]);
         });
 
         test('it gets all metrics from repository if only date_max param exists for date range filter', async () => {
-            metricModel.find.mockResolvedValue([]);
+            metricsRepository.find.mockResolvedValue([]);
 
-            expect(metricModel.find).not.toHaveBeenCalled();
+            expect(metricsRepository.find).not.toHaveBeenCalled();
 
             const getMetricsFilteredDto = {
                 date_max: '2020-05-01T00:02:12.852Z',
@@ -103,14 +103,14 @@ describe('MetricsService', () => {
                 getMetricsFilteredDto,
             );
 
-            expect(metricModel.find).toHaveBeenCalledTimes(1);
+            expect(metricsRepository.find).toHaveBeenCalledTimes(1);
             expect(metrics).toEqual([]);
         });
 
         test('it returns error if date_min param is not type of date string', async () => {
-            metricModel.find.mockResolvedValue('error message');
+            metricsRepository.find.mockResolvedValue('error message');
 
-            expect(metricModel.find).not.toHaveBeenCalled();
+            expect(metricsRepository.find).not.toHaveBeenCalled();
 
             const getMetricsFilteredDto = {
                 date_min: true,
@@ -121,14 +121,14 @@ describe('MetricsService', () => {
                 getMetricsFilteredDto,
             );
 
-            expect(metricModel.find).toHaveBeenCalledTimes(1);
+            expect(metricsRepository.find).toHaveBeenCalledTimes(1);
             expect(metrics).toEqual('error message');
         });
 
         test('it returns error if date_max param is not type of date string', async () => {
-            metricModel.find.mockResolvedValue('error message');
+            metricsRepository.find.mockResolvedValue('error message');
 
-            expect(metricModel.find).not.toHaveBeenCalled();
+            expect(metricsRepository.find).not.toHaveBeenCalled();
 
             const getMetricsFilteredDto = {
                 date_min: '2020-05-01T00:02:12.852Z',
@@ -139,16 +139,16 @@ describe('MetricsService', () => {
                 getMetricsFilteredDto,
             );
 
-            expect(metricModel.find).toHaveBeenCalledTimes(1);
+            expect(metricsRepository.find).toHaveBeenCalledTimes(1);
             expect(metrics).toEqual('error message');
         });
     });
 
     describe('createMetric()', () => {
         test('it creates a metric with valid parameters', async () => {
-            metricModel.create.mockResolvedValue({});
+            metricsRepository.create.mockResolvedValue({});
 
-            expect(metricModel.create).not.toHaveBeenCalled();
+            expect(metricsRepository.create).not.toHaveBeenCalled();
 
             const createMetricDto = {
                 host: 'doganozturk.dev',
@@ -168,9 +168,9 @@ describe('MetricsService', () => {
                 windowLoaded: 1.7499999958090484,
             };
 
-            const metric = await metricModel.create(createMetricDto);
+            const metric = await metricsRepository.create(createMetricDto);
 
-            expect(metricModel.create).toHaveBeenCalledTimes(1);
+            expect(metricsRepository.create).toHaveBeenCalledTimes(1);
             expect(metric).toEqual({});
         });
     });

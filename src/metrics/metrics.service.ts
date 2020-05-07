@@ -1,43 +1,24 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { IMetric } from './metric.model';
 import { CreateMetricDto } from './dto/create-metric.dto';
-import { Model, MongooseFilterQuery } from 'mongoose';
 import { GetMetricsFilteredDto } from './dto/get-metrics-filtered.dto';
-import { METRIC_MODEL } from './metric.constants';
+import { MetricsRepository } from './metrics.repository';
 
 @Injectable()
 export class MetricsService {
-    constructor(
-        @Inject(METRIC_MODEL) private readonly metricModel: Model<IMetric>,
-    ) {}
+    constructor(private readonly metricsRepository: MetricsRepository) {}
 
     async getMetrics(): Promise<IMetric[]> {
-        return this.metricModel.find({});
+        return this.metricsRepository.find();
     }
 
     async getFilteredMetrics(
         getMetricsFilteredDto: GetMetricsFilteredDto,
     ): Promise<IMetric[]> {
-        const { host, date_min, date_max } = getMetricsFilteredDto;
-        const filterQuery: MongooseFilterQuery<IMetric> = {};
-
-        if (host) {
-            filterQuery.host = host;
-        }
-
-        if (date_min && date_max) {
-            filterQuery.date = {
-                $gte: date_min,
-                $lte: date_max,
-            };
-        }
-
-        return this.metricModel.find(filterQuery);
+        return this.metricsRepository.find(getMetricsFilteredDto);
     }
 
     async createMetric(createMetricDto: CreateMetricDto): Promise<IMetric> {
-        const metric: IMetric = await this.metricModel.create(createMetricDto);
-
-        return metric.save();
+        return this.metricsRepository.create(createMetricDto);
     }
 }
