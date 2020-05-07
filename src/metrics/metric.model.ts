@@ -1,7 +1,6 @@
 import { Document } from 'mongoose';
 
-export interface Metric extends Document {
-    id: number;
+export interface IMetric extends Document {
     host: string;
     date: Date;
     ttfb: number;

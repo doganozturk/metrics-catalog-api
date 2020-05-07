@@ -1,19 +1,48 @@
 import * as mongoose from 'mongoose';
 
 export const MetricSchema = new mongoose.Schema({
-    id: Number,
-    host: String,
-    date: Date,
-    ttfb: Number,
-    fcp: Number,
-    domContentLoaded: Number,
-    windowLoaded: Number,
+    host: {
+        type: String,
+        required: true,
+    },
+    date: {
+        type: Date,
+        required: true,
+    },
+    ttfb: {
+        type: Number,
+        required: true,
+    },
+    fcp: {
+        type: Number,
+        required: true,
+    },
+    domContentLoaded: {
+        type: Number,
+        required: true,
+    },
+    windowLoaded: {
+        type: Number,
+        required: true,
+    },
     resources: [
         {
-            name: String,
-            requestStart: Number,
-            responseEnd: Number,
-            startTime: Number,
+            name: {
+                type: String,
+                required: true,
+            },
+            requestStart: {
+                type: Number,
+                required: true,
+            },
+            responseEnd: {
+                type: Number,
+                required: true,
+            },
+            startTime: {
+                type: Number,
+                required: true,
+            },
         },
     ],
 });

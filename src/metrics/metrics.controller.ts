@@ -8,7 +8,7 @@ import {
     ValidationPipe,
 } from '@nestjs/common';
 import { MetricsService } from './metrics.service';
-import { Metric } from './metric.model';
+import { IMetric } from './metric.model';
 import { CreateMetricDto } from './dto/create-metric.dto';
 import { GetMetricsFilteredDto } from './dto/get-metrics-filtered.dto';
 
@@ -20,7 +20,7 @@ export class MetricsController {
     @UsePipes(ValidationPipe)
     async getMetrics(
         @Query() getMetricsFilteredDto: GetMetricsFilteredDto,
-    ): Promise<Metric[]> {
+    ): Promise<IMetric[]> {
         if (Object.keys(getMetricsFilteredDto).length) {
             return this.metricsService.getFilteredMetrics(
                 getMetricsFilteredDto,
@@ -34,7 +34,7 @@ export class MetricsController {
     @UsePipes(ValidationPipe)
     async createMetric(
         @Body() createMetricDto: CreateMetricDto,
-    ): Promise<Metric> {
+    ): Promise<IMetric> {
         return this.metricsService.createMetric(createMetricDto);
     }
 }

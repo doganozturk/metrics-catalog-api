@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { MetricsService } from './metrics.service';
-import { getModelToken } from '@nestjs/mongoose';
+import { METRIC_MODEL } from './metric.constants';
 
 const mockMetricModel = () => ({
     find: jest.fn(),
@@ -16,14 +16,14 @@ describe('MetricsService', () => {
             providers: [
                 MetricsService,
                 {
-                    provide: getModelToken('Metric'),
+                    provide: METRIC_MODEL,
                     useFactory: mockMetricModel,
                 },
             ],
         }).compile();
 
         metricsService = module.get<MetricsService>(MetricsService);
-        metricModel = module.get(getModelToken('Metric'));
+        metricModel = module.get(METRIC_MODEL);
     });
 
     describe('getMetrics()', () => {
