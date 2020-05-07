@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "e294c13a-1e5a-4f68-a3fd-6018d627d016",
+		"name": "MetricsCatalog.API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all metrics",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/metrics/?host=doganozturk.dev",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"metrics",
+						""
+					],
+					"query": [
+						{
+							"key": "host",
+							"value": "doganozturk.dev"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all metrics - Filtered",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/metrics?host=doganozturk.dev&date_min=2020-05-01T22:07:48.822Z&date_max=2020-05-01T22:07:52.822Z",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "host",
+							"value": "doganozturk.dev"
+						},
+						{
+							"key": "date_min",
+							"value": "2020-05-01T22:07:48.822Z"
+						},
+						{
+							"key": "date_max",
+							"value": "2020-05-01T22:07:52.822Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a metric",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"host\": \"doganozturk.dev\",\n    \"date\": \"2020-05-01T00:02:12.852Z\",\n    \"fcp\": 3169.5049999980256,\n    \"resources\": [\n        {\n            \"name\": \"http://localhost:8080/browser-sync/browser-sync-client.js?v=2.26.7\",\n            \"requestStart\": 3083.1250000046566,\n            \"responseEnd\": 3128.1249999883585,\n            \"startTime\": 3057.024999987334\n        },\n        {\n            \"name\": \"http://localhost:8080/public/images/avatar.jpg\",\n            \"requestStart\": 3120.379999978468,\n            \"responseEnd\": 3160.779999976512,\n            \"startTime\": 3118.789999978617\n        },\n        {\n            \"name\": \"http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcJN\",\n            \"requestStart\": 3191.9399999896996,\n            \"responseEnd\": 3206.2199999927543,\n            \"startTime\": 3174.445000011474\n        },\n        {\n            \"name\": \"http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcKX&sid=2Ov42hi2x4Aw9NR3AAAA\",\n            \"requestStart\": 3256.1250000144355,\n            \"responseEnd\": 3258.9199999929406,\n            \"startTime\": 3248.8000000012107\n        },\n        {\n            \"name\": \"http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcKs&sid=2Ov42hi2x4Aw9NR3AAAA\",\n            \"requestStart\": 3271.9550000038,\n            \"responseEnd\": 3275.054999976419,\n            \"startTime\": 3268.470000009984\n        },\n        {\n            \"name\": \"http://localhost:8080/site.webmanifest\",\n            \"requestStart\": 3278.355000016745,\n            \"responseEnd\": 3279.9099999829195,\n            \"startTime\": 3273.994999995921\n        },\n        {\n            \"name\": \"http://localhost:8080/public/favicon/favicon-32x32.png\",\n            \"requestStart\": 3276.8899999791756,\n            \"responseEnd\": 3285.565000027418,\n            \"startTime\": 3276.639999996405\n        },\n        {\n            \"name\": \"http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcLC&sid=2Ov42hi2x4Aw9NR3AAAA\",\n            \"requestStart\": 3296.555000008084,\n            \"responseEnd\": 3297.7800000226125,\n            \"startTime\": 3292.0949999825098\n        },\n        {\n            \"name\": \"http://localhost:8080/browser-sync/socket.io/?EIO=3&transport=polling&t=N7DYcLE&sid=2Ov42hi2x4Aw9NR3AAAA\",\n            \"requestStart\": 3304.4649999937974,\n            \"responseEnd\": 3401.3450000202283,\n            \"startTime\": 3293.1400000234134\n        },\n        {\n            \"name\": \"http://localhost:8080/public/favicon/android-chrome-192x192.png\",\n            \"requestStart\": 3299.9999999883585,\n            \"responseEnd\": 3308.695000014268,\n            \"startTime\": 3299.219999986235\n        }\n    ],\n    \"ttfb\": 5.1300000050105155,\n    \"domContentLoaded\": 2.3250000085681677,\n    \"windowLoaded\": 1.7499999958090484\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/metrics",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"metrics"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
