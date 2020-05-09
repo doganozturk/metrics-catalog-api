@@ -4,6 +4,7 @@ import {
     Get,
     Post,
     Query,
+    UseInterceptors,
     UsePipes,
     ValidationPipe,
 } from '@nestjs/common';
@@ -11,6 +12,7 @@ import { MetricsService } from './metrics.service';
 import { IMetric } from './metric.model';
 import { CreateMetricDto } from './dto/create-metric.dto';
 import { GetMetricsFilteredDto } from './dto/get-metrics-filtered.dto';
+import { ParseBeaconRequestInterceptor } from './parse-beacon-request.interceptor';
 
 @Controller('metrics')
 export class MetricsController {
@@ -32,6 +34,7 @@ export class MetricsController {
 
     @Post()
     @UsePipes(ValidationPipe)
+    @UseInterceptors(ParseBeaconRequestInterceptor)
     async createMetric(
         @Body() createMetricDto: CreateMetricDto,
     ): Promise<IMetric> {
