@@ -1,1 +1,1 @@
-export const METRIC_MODEL = 'METRIC_MODEL';
+export const METRIC_MODEL = 'Metric';

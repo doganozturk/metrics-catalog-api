@@ -1,13 +1,17 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from '../database/database.module';
 import { MetricsController } from './metrics.controller';
 import { MetricsService } from './metrics.service';
-import { metricsProviders } from './metric.providers';
-import { MetricsRepository } from './metrics.repository';
+import { MongooseModule } from '@nestjs/mongoose';
+import { MetricSchema } from './metric.schema';
+import { METRIC_MODEL } from './metric.constants';
 
 @Module({
     controllers: [MetricsController],
-    providers: [MetricsRepository, MetricsService, ...metricsProviders],
-    imports: [DatabaseModule],
+    providers: [MetricsService],
+    imports: [
+        MongooseModule.forFeature([
+            { name: METRIC_MODEL, schema: MetricSchema },
+        ]),
+    ],
 })
 export class MetricsModule {}

@@ -12,7 +12,7 @@ import { MetricsService } from './metrics.service';
 import { IMetric } from './metric.model';
 import { CreateMetricDto } from './dto/create-metric.dto';
 import { GetMetricsFilteredDto } from './dto/get-metrics-filtered.dto';
-import { ParseBeaconRequestInterceptor } from './parse-beacon-request.interceptor';
+import { ParseBeaconRequestInterceptor } from './interceptors/parse-beacon-request.interceptor';
 
 @Controller('metrics')
 export class MetricsController {
