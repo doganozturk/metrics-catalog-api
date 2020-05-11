@@ -19,28 +19,21 @@ export class MetricsService {
     async getFilteredMetrics(
         getMetricsFilteredDto: GetMetricsFilteredDto,
     ): Promise<IMetric[]> {
-        if (
-            getMetricsFilteredDto &&
-            Object.keys(getMetricsFilteredDto).length
-        ) {
-            const { host, date_min, date_max } = getMetricsFilteredDto;
-            const filterQuery: MongooseFilterQuery<IMetric> = {};
+        const { host, date_min, date_max } = getMetricsFilteredDto;
+        const filterQuery: MongooseFilterQuery<IMetric> = {};
 
-            if (host) {
-                filterQuery.host = host;
-            }
-
-            if (date_min && date_max) {
-                filterQuery.date = {
-                    $gte: date_min,
-                    $lte: date_max,
-                };
-            }
-
-            return this.metricModel.find(filterQuery);
+        if (host) {
+            filterQuery.host = host;
         }
 
-        return this.getMetrics();
+        if (date_min && date_max) {
+            filterQuery.date = {
+                $gte: date_min,
+                $lte: date_max,
+            };
+        }
+
+        return this.metricModel.find(filterQuery);
     }
 
     async createMetric(createMetricDto: CreateMetricDto): Promise<IMetric> {

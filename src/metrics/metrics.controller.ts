@@ -23,7 +23,10 @@ export class MetricsController {
     async getMetrics(
         @Query() getMetricsFilteredDto: GetMetricsFilteredDto,
     ): Promise<IMetric[]> {
-        if (Object.keys(getMetricsFilteredDto).length) {
+        if (
+            typeof getMetricsFilteredDto === 'object' &&
+            Object.keys(getMetricsFilteredDto).length
+        ) {
             return this.metricsService.getFilteredMetrics(
                 getMetricsFilteredDto,
             );
